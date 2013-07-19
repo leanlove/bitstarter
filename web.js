@@ -6,6 +6,9 @@ var buf = require('buffer');
 var app = express.createServer(express.logger());
 
 
+app.configure(function() {
+	app.use(express.static(__dirname + '/statics') );
+});
 
 app.get('/', function(request, response) {
 	var c = fs.readFileSync('index.html','utf8');
